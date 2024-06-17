@@ -6,6 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>THIS WORKS</h1>
+    <h1><%=log.title%></h1>
+    <p><%=log.date%></p>
+    <p><%=log.time%></p>
+    <p><%=log.mood%></p>
+    <p><%=log.name%></p>
+    <a href="/logs/<%=log._id%>/edit">Edit</a>
+    <form action="/logs/<%=log._id%>?_method=DELETE" method="POST">
+        <button>Delete</button>
 </body>
 </html>

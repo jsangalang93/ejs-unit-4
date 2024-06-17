@@ -59,40 +59,46 @@ app.get('/logs/new', (req, res)=> {
 })
 
 app.post('/logs', async (req, res) => {
-    try{
+    // try{
         const createdLog = await Logs.create(req.body)
         res.redirect('/')
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('error');
-    }
+    // } catch (error) {
+    //     console.error(error);
+    //     res.status(500).send('error');
+    // }
 
 });
 app.get('/logs', async (req, res) => {
     const allLogs = await Logs.find({});
-    res.redirect('logs/index.ejs', {
+    res.render('logs/index.ejs', {
         logs: allLogs
     })
 })
 
 app.get('/logs/:id', async (req, res) => {
     const foundLog = await Logs.findById(req.params.id);
-    res.render('cards/show.ejs',  {card: foundCard});
+    res.render('logs/show.ejs',  {log: foundLog});
 });
 
 // // TO DO VIP SECTION?
 
-// app.get('logs/:id/edit', async (req, res) => {
-//     const foundLog = await Logs.findById(req.params.id);
-//     res.render('logs/edit.ejs', {log: foundLog});
-// });
+app.get('/logs/:id/edit', async (req, res) => {
+    const foundLog = await Logs.findById(req.params.id);
+    res.render('logs/edit.ejs', {
+        log: foundLog
+    });
+});
 
+app.put('/logs/:id/', async (req, res) => {
+    await Logs.findByIdAndUpdate(req.params.id, req.body, {new:true});
+    res.redirect(`/logs/${req.params.id}`);
+});
 // // to do possible parse by month date etc
 
-// app.delete('/logs/:id', async (req, res) => {
-//     await Logs.findByIdAndDelete(req.params.id);
-//     res.redirect('/logs');
-// })
+app.delete('/logs/:id', async (req, res) => {
+    await Logs.findByIdAndDelete(req.params.id);
+    res.redirect('/logs');
+})
 
 mongoose.connection.on('connected', ()=> {
     console.log(`connected to MongoDB at ${mongoose.connection.name}`);
