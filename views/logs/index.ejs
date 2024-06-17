@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All of Your Entries</title>
+</head>
+<body>
+    <h1>Your Journey</h1>
+    <% logs.forEach((log) => { %>
+        
+        <h2><%= log.title %></h2>
+        <p><%= log.time %></p>
+        <p><%= log.date %></p>
+        <p><%= log.mood %></p>
+        <p><%= log.content %></p>
+        <p><%= log.id %></p>
+        <a href="/logs/<%= log._id %>/edit">Edit</a>
+        <form action="/logs/<%= log._id %>?_method=DELETE" method="POST">
+            <button>Delete</button>
+            
+        </form>
+    <% }) %>
+</body>
+</html>
