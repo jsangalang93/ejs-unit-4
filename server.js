@@ -1,27 +1,28 @@
 const express = require('express');
 const app = express();
-
 const path = require('path');
-
 const dotenv = require('dotenv');
 dotenv.config();
-
 const mongoose = require('mongoose');
-
 const methodOverride = require('method-override');
 const morgan = require('morgan');
-
 const port = process.env.PORT ? process.env.PORT : 3011;
 const authController = require('./controllers/auth.js');
-
-app.use("/auth", authController);
-app.use(express.json());
+const Logs = require('./models/log.js');
 const session = require ('express-session');
+
+mongoose.connect(process.env.MONGODB_URI);
+mongoose.connection.on("error", (error) => {
+    console.log("MongoDB connection error ", error);
+  });
+
+app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(express.static('views'));
 app.use(morgan('dev'));
+
 
 app.use(
     session({
@@ -31,20 +32,11 @@ app.use(
     })
   );
 
-mongoose.connect(process.env.MONGODB_URI);
-
-
-mongoose.connection.on("error", (error) => {
-    console.log("MongoDB connection error ", error);
-  });
-
 // MIDDLEWARE VVVV
 
+app.use("/auth", authController);
 
 //session setup prefs
-
-
-const Logs = require('./models/log.js');
 
 
 // Home

@@ -12,10 +12,10 @@ router.get('/sign-up', (req, res) => {
 
 router.post('/sign-up', async (req, res) => {
     // res.send('welcome to your path to a better you');
-
-    //user validation
+console.log(req.body);
+    // user validation
     const userInDatabase = await User.findOne({username:req.body.username});
-    // const {username, password, confirmPassword} = req.body;
+    const {username, password, confirmPassword} = req.body;
     if (userInDatabase) {
         return res.send('username taken. Try again');
     }
