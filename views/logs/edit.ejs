@@ -37,9 +37,11 @@
         <input type="text" id="mood" name="mood" value="<%=log.mood%>"><br  />
         
         <label for="entry">Entry: </label>
-        <textarea type="text" id="entry" name="entry" cols="30" rows="10"></textarea><br  />
+        <textarea type="text" id="entry" name="entry" cols="30" rows="10"><%=log.entry%></textarea><br  />
         
+        <form action="/logs/<%= log.id %>?_method=UPDATE" method="POST">
         <button type="submit">Amend Blog</button><br  />
+        </form>
     
     </form>
 </body>

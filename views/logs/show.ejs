@@ -66,8 +66,11 @@
             <p class="info"><%=log.entry%></p>
             
             <!-- <textarea id="input-bar" name="content" id="entry" cols="30" rows="10"><%=log.entry%></textarea><br  /> -->
-            <form action="/logs/<%= log._id %>?_method=DELETE" method="POST">
+            <form action="/logs/<%= log._id %>/edit">
                 <button id="delete-edit"<%= log._id %>>Edit Entry</button>
+            </form>
+
+            <form action="/logs/<%= log._id %>?_method=DELETE" method="POST">
             <button id="delete-edit">Delete Entry</button>
         </form>
     </div>
