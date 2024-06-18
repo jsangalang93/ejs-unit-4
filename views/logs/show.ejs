@@ -7,20 +7,59 @@
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+CO:wght@100..400&display=swap" rel="stylesheet">
 </head>
 <style>
-    h1 {
+   h1 {
         text-align: center;
         font-family: 'Playwrite CO', sans-serif;
-        color: lavender;
+        color: #ca7ad3;
+      
+    }
+    
+    body {
+        background-color: #42dbbf;
+    }
+    
+    .form {
+        text-align: center;
+        background-color: #ca7ad3;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 10px;
+        align-items: center;
+    }
+    .info {
+        color: #f4eb82;
+        font-family: 'Playwrite CO', sans-serif;
+    }
+
+    #delete-edit {
+        background-color: #f4eb82;
+        color: #ca7ad3;
+        font-family: 'Playwrite CO', sans-serif;
+        border-radius: 25px;
+        padding: 10px;
+        margin: 10px;
+    
+    }
+
+    #input-bar {
+        border-radius: 25px;
+        padding: 5px;
+        margin: 5px;
+        background-color: #e4afda;
     }
 </style>
 <body>
+    
     <h1><%=log.title%></h1>
-    <p><%=log.date%></p>
-    <p><%=log.time%></p>
-    <p><%=log.mood%></p>
-    <p><%=log.name%></p>
-    <a href="/logs/<%=log._id%>/edit">Edit</a>
-    <form action="/logs/<%=log._id%>?_method=DELETE" method="POST">
-        <button>Delete</button>
-</body>
+        <div class="form">
+            <p class="info"><%=log.date%></p>
+            <p class="info"><%=log.time%></p>
+            <p class="info"><%=log.mood%></p>
+            <p class="info"><%=log.name%></p>
+            <button id="delete-edit"<%= log._id %>>Edit Entry</button>
+            <form action="/logs/<%= log._id %>?_method=DELETE" method="POST">
+            <button id="delete-edit">Delete Entry</button>
+        </form>
+    </div>
+</body> 
 </html>

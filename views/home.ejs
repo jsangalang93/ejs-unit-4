@@ -10,19 +10,30 @@
     h1 {
         text-align: center;
         font-family: 'Playwrite CO', sans-serif;
-        color: lavender;
+        color: #ca7ad3;
+    }
+
+    h3 {
+        text-align: center;
+        font-family: 'Playwrite CO', sans-serif;
+        color: #ca7ad3;
+    }
+
+    body {
+        background-color: #42dbbf;
+    }
+    
+    .navbar {
+        background-color: #e3f2fd;
     }
 </style>
 <body>
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-light" style="background-color: #e2e076; font-family: 'Playwrite CO', sans-serif; display: grid; grid-template-columns: 1fr 1fr 1fr; border-radius: 12px; text-align: center;">
         <a href="/auth/sign-in">Login</button>
             <a href="/auth/sign-up">Register</button>
             <a href="/logs">View All Entries</button>
       </nav>
     <h1>Your Virtual Journal</h1>
-    <a href="/auth/sign-in">Login</button>
-    <a href="/auth/sign-up">Register</button>
-    <a href="/logs">View All Entries</button>
     <% if (user) { %>
     <h3>Welcome to your virtual journal, <%= user.email %>!</h3>
     <p>
@@ -30,8 +41,8 @@
          <a href="/auth/sign-out">Sign Out</a>
     </p>
     <% } else { %>
-    <h3>Welcome to the start of a better you. Please sign in or sign up to start your path.</h3>
-    <a href="/auth/sign-up">Sign up</a> or <a href="/auth/sign-in">Sign in</a>.
+    <h3>Welcome to the start of a better you. <br />Please sign in, or sign up to start your path.</h3>
+
 </p>
 <% } %>
 </body>
