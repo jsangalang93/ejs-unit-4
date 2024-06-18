@@ -6,10 +6,25 @@
     <title>Your Virtual Journal</title>
 </head>
 <body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <a href="/auth/sign-in">Login</button>
+            <a href="/auth/sign-up">Register</button>
+            <a href="/logs">View All Entries</button>
+      </nav>
     <h1>Your Virtual Journal</h1>
-    <button>Login</button>
-    <button>Register</button>
+    <a href="/auth/sign-in">Login</button>
+    <a href="/auth/sign-up">Register</button>
     <a href="/logs">View All Entries</button>
-    
+    <% if (user) { %>
+    <h1>Welcome to your virtual journal, <%= user.email %>!</h1>
+    <p>
+        <!-- sign  out link -->
+         <a href="/auth/sign-out">Sign Out</a>
+    </p>
+    <% } else { %>
+    <h1>Welcome to the start of a better you. Please sign in or sign up to start your path.</h1>
+    <a href="/auth/sign-up">Sign up</a> or <a href="/auth/sign-in">Sign in</a>.
+</p>
+<% } %>
 </body>
 </html>

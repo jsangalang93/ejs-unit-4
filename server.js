@@ -12,23 +12,23 @@ const methodOverride = require('method-override');
 const morgan = require('morgan');
 
 const port = process.env.PORT ? process.env.PORT : 3011;
-// const authController = require('./controllers/auth.js');
+const authController = require('./controllers/auth.js');
 
-// const session = require ('express-session');
+const session = require ('express-session');
 app.use(express.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
-
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'views')));
-app.use(express.static('public'));
+app.use(express.static('views'));
 app.use(morgan('dev'));
 
-// app.use(
-//     session({
-//       secret: process.env.SESSION_SECRET,
-//       resave: false,
-//       saveUninitialized: true,
-//     })
-//   );
+app.use(
+    session({
+      secret: process.env.SESSION_SECRET,
+      resave: false,
+      saveUninitialized: true,
+    })
+  );
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -48,12 +48,14 @@ const Logs = require('./models/log.js');
 // Home
 app.get('/', async (req, res) => {
     res.render('home.ejs', {
-        // user: req.session.user,
+        user: req.session.user,
     });
 });
 
-//TODO ADD AUTH CONTROLLER
+// calling auth controller
+app.use('/auth', authController);  
 
+// CREATE
 app.get('/logs/new', (req, res)=> {
     res.render('logs/new.ejs')
 })
@@ -68,6 +70,8 @@ app.post('/logs', async (req, res) => {
     // }
 
 });
+
+// READ
 app.get('/logs', async (req, res) => {
     const allLogs = await Logs.find({});
     res.render('logs/index.ejs', {
@@ -75,6 +79,7 @@ app.get('/logs', async (req, res) => {
     })
 })
 
+// SHOW
 app.get('/logs/:id', async (req, res) => {
     const foundLog = await Logs.findById(req.params.id);
     res.render('logs/show.ejs',  {log: foundLog});
@@ -82,6 +87,7 @@ app.get('/logs/:id', async (req, res) => {
 
 // // TO DO VIP SECTION?
 
+// UPDATE
 app.get('/logs/:id/edit', async (req, res) => {
     const foundLog = await Logs.findById(req.params.id);
     res.render('logs/edit.ejs', {
@@ -95,6 +101,7 @@ app.put('/logs/:id/', async (req, res) => {
 });
 // // to do possible parse by month date etc
 
+// DELETE
 app.delete('/logs/:id', async (req, res) => {
     await Logs.findByIdAndDelete(req.params.id);
     res.redirect('/logs');
