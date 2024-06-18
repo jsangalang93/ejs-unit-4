@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Virtual Journal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+CO:wght@100..400&display=swap" rel="stylesheet">
 </head>
+<style>
+    h1 {
+        text-align: center;
+        font-family: 'Playwrite CO', sans-serif;
+        color: lavender;
+    }
+</style>
 <body>
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
         <a href="/auth/sign-in">Login</button>
@@ -16,13 +24,13 @@
     <a href="/auth/sign-up">Register</button>
     <a href="/logs">View All Entries</button>
     <% if (user) { %>
-    <h1>Welcome to your virtual journal, <%= user.email %>!</h1>
+    <h3>Welcome to your virtual journal, <%= user.email %>!</h3>
     <p>
         <!-- sign  out link -->
          <a href="/auth/sign-out">Sign Out</a>
     </p>
     <% } else { %>
-    <h1>Welcome to the start of a better you. Please sign in or sign up to start your path.</h1>
+    <h3>Welcome to the start of a better you. Please sign in or sign up to start your path.</h3>
     <a href="/auth/sign-up">Sign up</a> or <a href="/auth/sign-in">Sign in</a>.
 </p>
 <% } %>

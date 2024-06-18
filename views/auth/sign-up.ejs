@@ -4,17 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+CO:wght@100..400&display=swap" rel="stylesheet">
   </head>
+  <style>
+    h1 {
+        text-align: center;
+        font-family: 'Playwrite CO', sans-serif;
+        color: #ca7ad3;
+    }
+    body {
+        background-color: #f4eb82;
+    }
+    
+    .form {
+        text-align: center;
+        background-color: #ca7ad3;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 10px;
+        align-items: center;
+    }
+    #sign-up {
+        color: #f4eb82;
+        font-family: 'Playwrite CO', sans-serif;
+    }
+
+    .sign-in-button {
+        background-color: #f4eb82;
+        color: #ca7ad3;
+        font-family: 'Playwrite CO', sans-serif;
+        border-radius: 25px;
+        padding: 10px;
+        margin: 10px;
+    
+    }
+
+    #input-bar {
+        border-radius: 25px;
+        padding: 5px;
+        margin: 5px;
+        background-color: #e4afda;
+    }
+</style>
   <body>
+    
     <h1>Begin Your Journey To A Better You</h1>
-    <form action="" method="">
-      <label for="email">Email:</label>
-      <input type="text" name="email" id="email" />
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" />
-      <label for="confirmPassword">Confirm Password:</label>
-      <input type="password" name="confirmPassword" id="confirmPassword" />
-      <button type="submit">Sign up</button>
+    <div class="form">
+    <form action="/sign-up" method="POST">
+      <label id="sign-up" for="username">Username:</label>
+      <input id="input-bar" type="text" name="username" id="username" /><br />
+      <label id="sign-up" for="password">Password:</label>
+      <input id="input-bar" type="password" name="password" id="password" /><br />
+      <label id="sign-up" for="confirmPassword">Confirm Password:</label>
+      <input id="input-bar" type="password" name="confirmPassword" id="confirmPassword" /><br />
+      <button class="sign-in-button" type="submit">Sign up</button>
     </form>
+    </div>
   </body>
 </html>

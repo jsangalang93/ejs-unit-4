@@ -14,10 +14,11 @@ const morgan = require('morgan');
 const port = process.env.PORT ? process.env.PORT : 3011;
 const authController = require('./controllers/auth.js');
 
+app.use("/auth", authController);
+app.use(express.json());
 const session = require ('express-session');
 app.use(express.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
-app.use(express.json());
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(express.static('views'));
 app.use(morgan('dev'));
@@ -44,6 +45,7 @@ mongoose.connection.on("error", (error) => {
 
 
 const Logs = require('./models/log.js');
+
 
 // Home
 app.get('/', async (req, res) => {
