@@ -11,28 +11,63 @@
     h1 {
         text-align: center;
         font-family: 'Playwrite CO', sans-serif;
-        color: lavender;
+        color: #ca7ad3;
+      
+    }
+    
+    body {
+        background-color: #42dbbf;
+    }
+    
+    .form {
+        text-align: center;
+        background-color: #ca7ad3;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 10px;
+        align-items: center;
+    }
+    .info {
+        color: #f4eb82;
+        font-family: 'Playwrite CO', sans-serif;
+    }
+
+    #delete-edit {
+        background-color: #f4eb82;
+        color: #ca7ad3;
+        font-family: 'Playwrite CO', sans-serif;
+        border-radius: 25px;
+        padding: 10px;
+        margin: 10px;
+    
+    }
+
+    #input-bar {
+        border-radius: 25px;
+        padding: 5px;
+        margin: 5px;
+        background-color: #e4afda;
     }
 </style>
 <body>
-    <fieldset>
     <h1>New Journal Entry</h1>
+    <fieldset class="form">
     <form action = "/logs" method = "POST">
-        <label>Time: </label>
-        <input type="text" name="time" ><br />
+        <label class="info">Time: </label>
+        <input id="input-bar" type="text" name="time" ><br />
 
-        <label>Date: </label>
-        <input type="text" name="date" ><br  />
+        <label class="info">Date: </label>
+        <input id="input-bar" type="text" name="date" ><br  />
 
-        <label>Title: </label>
-        <input type="text" name="title" ><br  />
+        <label class="info">Title: </label>
+        <input id="input-bar" type="text" name="title" ><br  />
 
-        <label>Mood: </label>
-        <input type="text" name="mood" ><br  />
+        <label class="info">Mood: </label>
+        <input id="input-bar" type="text" name="mood" ><br  />
         
-        <label for="content">Entry: </label>
-        <textarea name="content" id="entry" cols="30" rows="10"></textarea><br  />
-        <button type="submit">Create</button><br  />
+        <label class="info" for="content">Entry: </label>
+        <textarea id="input-bar" name="entry" id="entry" cols="30" rows="10"></textarea><br  />
+        <button id="delete-edit" type="submit">Create</button><br  />
     <label></label>
 </fieldset>
 </body>

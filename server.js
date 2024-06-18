@@ -65,6 +65,9 @@ app.get('/logs/new', (req, res)=> {
 app.post('/logs', async (req, res) => {
     // try{
         const createdLog = await Logs.create(req.body)
+        // const createdLog = new Logs(req.body);
+        // await newLog.save();
+        console.log(createdLog);
         res.redirect('/')
     // } catch (error) {
     //     console.error(error);

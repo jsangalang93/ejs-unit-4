@@ -56,6 +56,7 @@
             <a class="info" href="/logs/<%= log._id %>">
                 <%= log.title %></a>
                 <p class="info"><%= log.date %></p>
+            <form action="/logs/<%= log._id %>/edit">
                 <button id="delete-edit"<%= log._id %>>Edit Entry</button>
             <form action="/logs/<%= log._id %>?_method=DELETE" method="POST">
                 <button id="delete-edit">Delete Entry</button>

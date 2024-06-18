@@ -49,15 +49,25 @@
     }
 </style>
 <body>
+    <nav class="navbar navbar-light" style="background-color: #e2e076; font-family: 'Playwrite CO', sans-serif; display: grid; grid-template-columns: 1fr 1fr 1fr; border-radius: 12px; text-align: center;">
+        <!-- TO DO SEARCH BY DATE -->
+        <a href="/logs">View All Entries</button>
+  </nav>
     
     <h1><%=log.title%></h1>
         <div class="form">
+            <p>Date: </p>
             <p class="info"><%=log.date%></p>
+            <p>Time: </p>
             <p class="info"><%=log.time%></p>
+            <p>Mood: </p>
             <p class="info"><%=log.mood%></p>
-            <p class="info"><%=log.name%></p>
-            <button id="delete-edit"<%= log._id %>>Edit Entry</button>
+            <p>Entry: </p>
+            <p class="info"><%=log.entry%></p>
+            
+            <!-- <textarea id="input-bar" name="content" id="entry" cols="30" rows="10"><%=log.entry%></textarea><br  /> -->
             <form action="/logs/<%= log._id %>?_method=DELETE" method="POST">
+                <button id="delete-edit"<%= log._id %>>Edit Entry</button>
             <button id="delete-edit">Delete Entry</button>
         </form>
     </div>
