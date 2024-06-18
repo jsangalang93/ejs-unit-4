@@ -37,17 +37,23 @@
         align-self: center;
     
     }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+    }
 </style>
 <body>
-    <nav class="navbar navbar-light" style="background-color: #e2e076; font-family: 'Playwrite CO', sans-serif; display: grid; grid-template-columns: 1fr 1fr 1fr; border-radius: 12px; text-align: center;">
-        <a href="/auth/sign-in">Login</a>
-            <a href="/auth/sign-up">Register</a>
-      </nav>
-    <h1>Your Virtual Journal</h1>
     <% if (user) { %>
+        <nav class="navbar navbar-light" style="background-color: #e2e076; font-family: 'Playwrite CO', sans-serif; display: grid; grid-template-columns: 1fr 1fr; border-radius: 12px; text-align: center;">
+            <a href="/logs/">View All Entries</a>
+                <a href="/auth/sign-out">Sign Out</a>
+          </nav>
+          <h1>Your Virtual Journal</h1>
     <h3>Welcome to your virtual journal, <%= user.username %>!</h3>
     <p>
         <!-- sign  out link -->
+         <!-- <div class="buttons">
         <form action="/logs/" method="GET">
             <button id="delete-edit">View All of Your Entries</button>
         </form>
@@ -55,9 +61,14 @@
          <form action="/auth/sign-out">
             <button id="delete-edit">Sign Out</button>
         </form>
+    </div> -->
     </p>
     <% } else { %>
-        
+        <nav class="navbar navbar-light" style="background-color: #e2e076; font-family: 'Playwrite CO', sans-serif; display: grid; grid-template-columns: 1fr 1fr; border-radius: 12px; text-align: center;">
+            <a href="/auth/sign-in">Login</a>
+                <a href="/auth/sign-up">Register</a>
+          </nav>
+          <h1>Your Virtual Journal</h1>
     <h3>Welcome to the start of a better you. <br />Please sign in, or sign up to start your path.</h3>
 
 </p>
