@@ -15,6 +15,11 @@
     }
 </style>
 <body>
+    <nav class="navbar navbar-light" style="background-color: #e2e076; font-family: 'Playwrite CO', sans-serif; display: grid; grid-template-columns: 1fr 1fr 1fr; border-radius: 12px; text-align: center;">
+        <a href="/auth/sign-in">Login</button>
+            <a href="/auth/sign-up">Register</button>
+            <a href="/logs">View All Entries</button>
+      </nav>
     <h1>Amend your Journal Entry</h1>
 
     <form action = "/logs/<%= log.id%>?_method=PUT" method = "POST">
@@ -32,7 +37,7 @@
         <input type="text" id="mood" name="mood" value="<%=log.mood%>"><br  />
         
         <label for="entry">Entry: </label>
-        <textarea id="entry" name="entry" cols="30" rows="10"></textarea><br  />
+        <textarea type="text" id="entry" name="entry" cols="30" rows="10"></textarea><br  />
         
         <button type="submit">Amend Blog</button><br  />
     

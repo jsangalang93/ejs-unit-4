@@ -49,6 +49,11 @@
     }
 </style>
 <body>
+    <nav class="navbar navbar-light" style="background-color: #e2e076; font-family: 'Playwrite CO', sans-serif; display: grid; grid-template-columns: 1fr 1fr 1fr; border-radius: 12px; text-align: center;">
+        <a href="/auth/sign-in">Login</a>
+            <a href="/auth/sign-up">Register</a>
+            <a href="/logs">View All Entries</a>
+      </nav>
     <h1>Your Journey</h1>
     <% logs.forEach((log) => { %>
         <div class="form">
