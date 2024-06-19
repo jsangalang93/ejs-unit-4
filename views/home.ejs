@@ -49,14 +49,16 @@
             <a href="/logs/">View All Entries</a>
             <a href="/logs/new">New Entry</a>
                 <a href="/auth/sign-out">Sign Out</a>
+                <a href="/logs/resources">External Resources</a>
           </nav>
           <h1>Your Virtual Journal</h1>
     <h3>Welcome to your virtual journal, <%= user.username %>!</h3>
 
     <% } else { %>
-        <nav class="navbar navbar-light" style="background-color: #e2e076; font-family: 'Playwrite CO', sans-serif; display: grid; grid-template-columns: 1fr 1fr; border-radius: 12px; text-align: center;">
+        <nav class="navbar navbar-light" style="background-color: #e2e076; font-family: 'Playwrite CO', sans-serif; display: grid; grid-template-columns: 1fr 1fr 1fr; border-radius: 12px; text-align: center;">
             <a href="/auth/sign-in">Login</a>
                 <a href="/auth/sign-up">Register</a>
+                <a href="/logs/resources">External Resources</a>
           </nav>
           <h1>Your Virtual Journal</h1>
     <h3>Welcome to the start of a better you. <br />Please sign in, or sign up to start your path.</h3>

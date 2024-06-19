@@ -38,7 +38,6 @@ app.use("/auth", authController);
 
 //session setup prefs
 
-
 // Home
 app.get('/', async (req, res) => {
     res.render('home.ejs', {
@@ -76,6 +75,10 @@ app.get('/logs', async (req, res) => {
     })
 })
 
+app.get('/logs/resources', (req, res) => {
+    res.render('logs/resources.ejs');
+});
+
 // SHOW
 app.get('/logs/:id', async (req, res) => {
     const foundLog = await Logs.findById(req.params.id);
@@ -91,6 +94,9 @@ app.get('/logs/:id/edit', async (req, res) => {
         log: foundLog
     });
 });
+
+
+
 
 app.put('/logs/:id/', async (req, res) => {
     await Logs.findByIdAndUpdate(req.params.id, req.body, {new:true});
