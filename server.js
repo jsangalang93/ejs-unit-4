@@ -59,7 +59,7 @@ app.post('/logs', async (req, res) => {
         // const createdLog = new Logs(req.body);
         // await newLog.save();
         console.log(createdLog);
-        res.redirect('/')
+        res.redirect('/logs');
     // } catch (error) {
     //     console.error(error);
     //     res.status(500).send('error');
