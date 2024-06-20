@@ -71,7 +71,7 @@ app.get('/logs/resources', (req, res) => {
     res.render('logs/resources.ejs');
 });
 
-app.get('/logs/happiness', (req, res) => {
+app.get('/logs/pictures', (req, res) => {
     res.render('logs/pictures.ejs');
 });
 
@@ -93,7 +93,6 @@ app.put('/logs/:id/', async (req, res) => {
     await Logs.findByIdAndUpdate(req.params.id, req.body, {new:true});
     res.redirect(`/logs/${req.params.id}`);
 });
-// // to do possible parse by month date etc
 
 // DELETE
 app.delete('/logs/:id', async (req, res) => {
