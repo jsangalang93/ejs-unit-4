@@ -1,0 +1,28 @@
+Unit 4 Capstone:
+YOUR VIRTUAL DIARY
+
+DEPLOYED PROJECT: http://3.141.46.99:3011/
+GITHUB REPOSITORY: https://github.com/jsangalang93/ejs-unit-4
+
+PROJECT DESCRIPTION:
+
+A virtual diary where you can log entries, amend posts, and be on your way to being your best self.
+
+THE PROCESS OF MAKING 'YOUR VIRTUAL DIARY'
+
+I originally started with a datatbase in a separate deployed repository, but decided to create the database in the same repository as the front end. From there, I fleshed out the pages, continued with session authorization. I had a couple hiccups with the session authorization, but persevered and conquered. From there, I continued to add bootstrap elements and an aesthetic overall for the website. Once I got the MVP for the project I continued to add a carousel brought from bootstrap to make sure I was able to learn something more challenging in regards to implenting a third party resource. The project was a valuable experience, and I'm grateful taht  I continued to work on challenges though I had the minimum requirements. Overall, I created not one, but three databases and though one wasn't necessarily used, I look forward to using that singular database to translate my project from EJS into a REACT Frontend.
+
+IMAGE CITATION:
+CRYING MIA GOTH (FROM "PEARL"):
+"https://www.dexerto.com/cdn-cgi/image/width=3840,quality=75,format=auto/https://editors.dexerto.com/wp-content/uploads/2023/03/16/mia-goth-pearl.jpg"
+
+SAD EYE SMILE MEME:
+"https://i.imgflip.com/4n36ek.jpg"
+
+STEVE CARRELL (FROM "THE OFFICE"):
+"https://www.goaskmum.com.au/wp-content/uploads/2022/07/michael-scott-yikes-face.png"
+
+TYPEFONT:
+
+"PLAYWRITE COLUMBIA" from Google Fonts:
+"https://fonts.google.com/specimen/Playwrite+CO"
