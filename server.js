@@ -10,7 +10,13 @@ const port = process.env.PORT ? process.env.PORT : 3011;
 const authController = require('./controllers/auth.js');
 const Logs = require('./models/log.js');
 const session = require ('express-session');
-
+// --------------------------------------------------------------------------
+// const myCarouselElement = document.querySelector('#myCarousel')
+// const carousel = new bootstrap.Carousel(myCarouselElement, {
+//   interval: 2000,
+//   touch: false
+// })
+// --------------------------------------------------------------------------
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on("error", (error) => {
     console.log("MongoDB connection error ", error);
@@ -22,8 +28,6 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(express.static('views'));
 app.use(morgan('dev'));
-
-
 app.use(
     session({
       secret: process.env.SESSION_SECRET,
@@ -31,12 +35,7 @@ app.use(
       saveUninitialized: true,
     })
   );
-
-// MIDDLEWARE VVVV
-
 app.use("/auth", authController);
-
-//session setup prefs
 
 // Home
 app.get('/', async (req, res) => {
@@ -56,15 +55,8 @@ app.get('/logs/new', (req, res)=> {
 app.post('/logs', async (req, res) => {
     // try{
         const createdLog = await Logs.create(req.body)
-        // const createdLog = new Logs(req.body);
-        // await newLog.save();
         console.log(createdLog);
         res.redirect('/logs');
-    // } catch (error) {
-    //     console.error(error);
-    //     res.status(500).send('error');
-    // }
-
 });
 
 // READ
@@ -79,13 +71,15 @@ app.get('/logs/resources', (req, res) => {
     res.render('logs/resources.ejs');
 });
 
+app.get('/logs/happiness', (req, res) => {
+    res.render('logs/pictures.ejs');
+});
+
 // SHOW
 app.get('/logs/:id', async (req, res) => {
     const foundLog = await Logs.findById(req.params.id);
     res.render('logs/show.ejs',  {log: foundLog});
 });
-
-// // TO DO VIP SECTION?
 
 // UPDATE
 app.get('/logs/:id/edit', async (req, res) => {
@@ -94,9 +88,6 @@ app.get('/logs/:id/edit', async (req, res) => {
         log: foundLog
     });
 });
-
-
-
 
 app.put('/logs/:id/', async (req, res) => {
     await Logs.findByIdAndUpdate(req.params.id, req.body, {new:true});
