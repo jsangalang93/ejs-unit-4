@@ -4,29 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- css bundle for bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- js bundle for bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+CO:wght@100..400&display=swap" rel="stylesheet">
 </head>
+<style>
+    h1 {
+        text-align: center;
+        font-family: 'Playwrite CO', sans-serif;
+        color: #ca7ad3;
+        margin: 30px;
+      
+    }
+    
+    body {
+        background-color: #42dbbf;
+        justify-content: center;
+    }
+
+    .main-div {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        background-color: #ca7ad3;
+        border-radius: 10px;
+        padding: 20px;
+        width: 1000px;
+        height: 600px;
+    }
+
+.carousel-item img {
+  object-fit: cover; 
+  width: 100%; 
+  height: 100%; 
+}
+
+#picparams {
+    max-height: fit-content;
+}
+
+.div-div {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.visually-hidden {
+    text-align: center;
+    font-family: 'Playwrite CO', sans-serif;
+    color: #ca7ad3;
+    margin: 30px;
+    
+}
+
+
+</style>
 <body>
-    <h1>This works</h1>
-    <div id="carouselExample" class="carousel slide">
+    
+    <nav class="navbar navbar-light" style="background-color: #e2e076; font-family: 'Playwrite CO', sans-serif; display: grid; grid-template-columns: 1fr 1fr; border-radius: 12px; text-align: center;">
+        <a href="/">Home</a>
+        <a href="/auth/sign-in">Sign In</a>
+    </nav>
+
+    <h1>Happiness at it's finest.</h1>
+    <div class="div-div">
+        <div class="main-div">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="..." class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="https://www.dexerto.com/cdn-cgi/image/width=3840,quality=75,format=auto/https://editors.dexerto.com/wp-content/uploads/2023/03/16/mia-goth-pearl.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-          </div>
+            <div class="carousel-item active">
+            <img id="picparams" src="https://i.imgflip.com/4n36ek.jpg" class="d-block w-100 img fluid">
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button> 
-      </div>
+        <div class="carousel-item">
+            <img id="picparams" src="https://www.dexerto.com/cdn-cgi/image/width=3840,quality=75,format=auto/https://editors.dexerto.com/wp-content/uploads/2023/03/16/mia-goth-pearl.jpg" class="d-block w-100 img fluid">
+        </div>
+        <div class="carousel-item">
+            <img id="picparams" src="https://www.goaskmum.com.au/wp-content/uploads/2022/07/michael-scott-yikes-face.png" class="d-block w-100 img fluid">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+    </div>
+    </div>
+
+    </body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
