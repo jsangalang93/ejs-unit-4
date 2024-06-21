@@ -10,13 +10,7 @@ const port = process.env.PORT ? process.env.PORT : 3011;
 const authController = require('./controllers/auth.js');
 const Logs = require('./models/log.js');
 const session = require ('express-session');
-// --------------------------------------------------------------------------
-// const myCarouselElement = document.querySelector('#myCarousel')
-// const carousel = new bootstrap.Carousel(myCarouselElement, {
-//   interval: 2000,
-//   touch: false
-// })
-// --------------------------------------------------------------------------
+
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on("error", (error) => {
     console.log("MongoDB connection error ", error);
